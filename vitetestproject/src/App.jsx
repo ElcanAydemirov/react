@@ -11,7 +11,7 @@ import Filter from './components/filter'
 
 function App() {
   const [data, setData] = useState([])
-
+  const [searchValue,setSearchValue] = useState("")
 
 
   useEffect(() => {
@@ -29,8 +29,10 @@ function App() {
 
   return (
     <>
-      <Filter data={data} setData={setData}/>
-      <Card data={data} setData={setData} />
+      <input type="Search" placeholder='search in here' onChange={(e) => {
+        setSearchValue(e.target.value)
+      }}/>
+      <Card data={data} setData={setData} searchValue={searchValue}/>
 
     </>
   )

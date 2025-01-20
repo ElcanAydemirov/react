@@ -1,16 +1,18 @@
 import React from 'react'
 import './index.css'
 
-const Card = ({ data, setData }) => {
+const Card = ({ data, setData,searchValue }) => {
+    const filtered = data.filter((d) => d.name.toLowerCase().includes(searchValue)) 
     return (
         <>
             {/* <div className='card'>
                     
                 </div> */}
+            
 
             {
                 <div className="cards">
-                    {data.map((recipe) => {
+                    {filtered.map((recipe) => {
                         return (
 
                             <div className='card' key={recipe.id}>
